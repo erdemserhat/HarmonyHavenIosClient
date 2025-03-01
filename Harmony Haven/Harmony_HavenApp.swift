@@ -9,9 +9,32 @@ import SwiftUI
 
 @main
 struct Harmony_HavenApp: App {
+    @StateObject private var authViewModel = AuthenticationViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthenticationContainerView()
+                .environmentObject(authViewModel)
+                .environmentObject(AppNavigationCoordinator())
+        }
+    }
+}
+
+// Container view to handle authentication state
+struct AuthenticationContainerView: View {
+    @EnvironmentObject private var authViewModel: AuthenticationViewModel
+    
+    var body: some View {
+        Group {
+            if authViewModel.isAuthenticated {
+                MainTabView()
+            } else {
+                LoginView()
+            }
+        }
+        .onAppear {
+            // Check if user is already authenticated
+            authViewModel.checkAuthentication()
         }
     }
 }
