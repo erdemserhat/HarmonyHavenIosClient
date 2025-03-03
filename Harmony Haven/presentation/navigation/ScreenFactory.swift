@@ -35,4 +35,8 @@ struct AppScreenFactory {
     static func makeNotificationsScreen() -> some View {
         NotificationView()
     }
+    
+    static func makeQuotesScreen() -> some View {
+        QuotesView()
+    }
 } 

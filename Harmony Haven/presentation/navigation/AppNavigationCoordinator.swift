@@ -11,6 +11,7 @@ enum AppScreen: Hashable {
     case categoryArticles(categoryId: Int, categoryName: String)
     case profile
     case notifications
+    case quotes
     
     // MARK: - Hashable Implementation
     func hash(into hasher: inout Hasher) {
@@ -33,6 +34,8 @@ enum AppScreen: Hashable {
             hasher.combine(4)
         case .notifications:
             hasher.combine(5)
+        case .quotes:
+            hasher.combine(6)
         }
     }
     
@@ -54,6 +57,8 @@ enum AppScreen: Hashable {
         case (.profile, .profile):
             return true
         case (.notifications, .notifications):
+            return true
+        case (.quotes, .quotes):
             return true
         default:
             return false
@@ -78,6 +83,8 @@ enum AppScreen: Hashable {
             return "Profile"
         case .notifications:
             return "Notifications"
+        case .quotes:
+            return "Quotes"
         }
     }
     
@@ -99,6 +106,8 @@ enum AppScreen: Hashable {
             return "person"
         case .notifications:
             return "bell"
+        case .quotes:
+            return "quote.bubble"
         }
     }
 }

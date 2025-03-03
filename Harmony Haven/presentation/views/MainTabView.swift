@@ -26,6 +26,8 @@ struct MainTabView: View {
                             AppScreenFactory.makeHomeScreen()
                         case .notifications:
                             AppScreenFactory.makeNotificationsScreen()
+                        case .quotes:
+                            AppScreenFactory.makeQuotesScreen()
                         }
                     }
             }
@@ -33,6 +35,12 @@ struct MainTabView: View {
             .tabItem {
                 Label("Home", systemImage: "house")
             }
+            
+            // Quotes Tab
+            AppScreenFactory.makeQuotesScreen()
+                .tabItem {
+                    Label("Quotes", systemImage: "quote.bubble")
+                }
             
             NavigationStack {
                 AppScreenFactory.makeNotificationsScreen()
