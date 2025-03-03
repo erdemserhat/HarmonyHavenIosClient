@@ -7,3 +7,4 @@ struct ArticleCategoryDTO: Codable {
 }
 
 
+//Examine dto classe
