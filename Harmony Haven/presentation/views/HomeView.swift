@@ -203,7 +203,7 @@ struct HomeView: View {
                             LazyVStack(spacing: 16) {
                                 ForEach(filteredArticles, id: \.id) { article in
                                     Button(action: {
-                                        navigationCoordinator.navigateTo(.articleDetail(article))
+                                        navigationCoordinator.navigateTo(AppScreen.articleDetail(article))
                                     }) {
                                         // Updated article card with iOS-like design
                                         VStack(alignment: .leading, spacing: 10) {

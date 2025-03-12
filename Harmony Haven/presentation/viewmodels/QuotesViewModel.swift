@@ -40,7 +40,7 @@ class QuotesViewModel: ObservableObject {
         fetchQuotesUseCase.execute(
             categories: [selectedCategoryId],
             page: currentPage,
-            pageSize: 10,
+            pageSize: 100,
             seed: seed
         ) { [weak self] result in
             DispatchQueue.main.async {

@@ -13,6 +13,8 @@ enum AppScreen: Hashable {
     case notifications
     case quotes
     
+    
+    //The hash(into:) method is overridden in the AppScreen enum to provide a custom hashing mechanism for each case of the enum.
     // MARK: - Hashable Implementation
     func hash(into hasher: inout Hasher) {
         switch self {
@@ -149,4 +151,6 @@ extension View {
     func withAppNavigation() -> some View {
         self.modifier(AppNavigationStyle())
     }
-} 
+}
+
+
