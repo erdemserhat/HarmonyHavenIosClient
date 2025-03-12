@@ -10,3 +10,4 @@ struct ArticleDTO: Codable {
     let categoryId: Int
     let imagePath: String
 } 
+

@@ -113,6 +113,7 @@ struct QuotesView: View {
                                 )
                             )
                         }
+                        .tabViewStyle(PageTabViewStyle())
                         .tag(index)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                         .onAppear {

@@ -14,4 +14,5 @@ class FetchQuotesUseCase: FetchQuotesUseCaseProtocol {
     func execute(categories: [Int] = [21], page: Int = 1, pageSize: Int = 10, seed: Int, completion: @escaping (Result<(quotes: [Quote], totalPages: Int, currentPage: Int), Error>) -> Void) {
         quoteRepository.fetchQuotes(categories: categories, page: page, pageSize: pageSize, seed: seed, completion: completion)
     }
-} 
+}
+//

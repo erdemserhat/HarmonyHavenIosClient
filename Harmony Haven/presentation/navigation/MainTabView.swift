@@ -5,7 +5,9 @@ struct MainTabView: View {
     @EnvironmentObject private var authViewModel: AuthenticationViewModel
     
     var body: some View {
+        //BOTTOM NAVBAR
         TabView {
+            //HOME NAVIGATION BAR
             NavigationStack(path: $navigationCoordinator.path) {
                 AppScreenFactory.makeHomeScreen()
                     .navigationDestination(for: AppScreen.self) { screen in
@@ -36,15 +38,20 @@ struct MainTabView: View {
                 Label("Home", systemImage: "house")
             }
             
-            // Quotes Tab
-            AppScreenFactory.makeQuotesScreen()
-                .tabItem {
-                    Label("Quotes", systemImage: "quote.bubble")
-                }
-            
+            //QUOTES NAVIGATION BAR
+            NavigationStack{
+                AppScreenFactory.makeQuotesScreen()
+                    
+            }.tabItem {
+                Label("Quotes", systemImage: "quote.bubble")
+            }
+        
+        
+            //NOTIFICATION NAVIGATION BAR
             NavigationStack {
                 AppScreenFactory.makeNotificationsScreen()
                     .navigationDestination(for: AppScreen.self) { screen in
+                        //FOR NAVIGATING ARTICLES IN THE FUTURE
                         switch screen {
                         case .articleDetail(let article):
                             AppScreenFactory.makeArticleDetailScreen(article: article)
@@ -58,12 +65,15 @@ struct MainTabView: View {
                 Label("Notifications", systemImage: "bell")
             }
             
+            //PROFILE NAVIGATION BAR
             NavigationStack {
                 ProfileView()
             }
             .tabItem {
                 Label("Profile", systemImage: "person")
             }
+            
+            
         }
     }
 } 

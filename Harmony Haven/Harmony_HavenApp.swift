@@ -11,6 +11,11 @@ import SwiftUI
 struct Harmony_HavenApp: App {
     @StateObject private var authViewModel = AuthenticationViewModel()
     
+    init() {
+        let result = add(firstNumber: 12,secondNumber: 12)
+        print("Application Started \(result)")
+    }
+    
     var body: some Scene {
         WindowGroup {
             AuthenticationContainerView()
@@ -37,4 +42,8 @@ struct AuthenticationContainerView: View {
             authViewModel.checkAuthentication()
         }
     }
+}
+
+func add(firstNumber first:Int, secondNumber second:Int)->Int{
+    return first+second
 }

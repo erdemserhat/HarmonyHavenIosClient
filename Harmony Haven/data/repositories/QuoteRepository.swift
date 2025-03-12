@@ -11,7 +11,7 @@ class QuoteRepository: QuoteRepositoryProtocol {
         self.quoteService = quoteService
     }
     
-    func fetchQuotes(categories: [Int] = [21], page: Int = 1, pageSize: Int = 10, seed: Int, completion: @escaping (Result<(quotes: [Quote], totalPages: Int, currentPage: Int), Error>) -> Void) {
+    func fetchQuotes(categories: [Int] = [21], page: Int = 1, pageSize: Int = 100, seed: Int, completion: @escaping (Result<(quotes: [Quote], totalPages: Int, currentPage: Int), Error>) -> Void) {
         quoteService.fetchQuotes(categories: categories, page: page, pageSize: pageSize, seed: seed) { result in
             switch result {
             case .success(let response):
@@ -22,4 +22,9 @@ class QuoteRepository: QuoteRepositoryProtocol {
             }
         }
     }
-} 
+}
+
+
+protocol PersonDetails {
+    var name:String { get set }
+}

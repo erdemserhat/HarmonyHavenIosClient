@@ -9,6 +9,7 @@ class GetArticlesUseCaseImpl: GetArticlesUseCase {
     
     init(repository: ArticleRepository = ArticleRepositoryImpl()) {
         self.repository = repository
+        
     }
     
     func execute(completion: @escaping (Result<[Article], NetworkError>) -> Void) {
