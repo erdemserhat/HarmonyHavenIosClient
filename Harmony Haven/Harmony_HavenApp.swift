@@ -33,6 +33,7 @@ struct AuthenticationContainerView: View {
         Group {
             if authViewModel.isAuthenticated {
                 MainTabView()
+                //tab view fixed
             } else {
                 LoginView()
             }
