@@ -45,7 +45,14 @@ struct MainTabView: View {
             }.tabItem {
                 Label("Quotes", systemImage: "quote.bubble")
             }
-        
+            
+            //CHAT NAVIGATION BAR
+            NavigationStack {
+                ChatView()
+            }
+            .tabItem {
+                Label("HarmonyAI", systemImage: "message")
+            }
         
             //NOTIFICATION NAVIGATION BAR
             NavigationStack {
@@ -72,8 +79,6 @@ struct MainTabView: View {
             .tabItem {
                 Label("Profile", systemImage: "person")
             }
-            
-            
         }
     }
 } 
